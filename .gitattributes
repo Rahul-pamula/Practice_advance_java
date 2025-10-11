@@ -1,0 +1,22 @@
+# Normalize all text files
+* text=auto
+
+# Shell scripts -> LF
+*.sh text eol=lf
+# mvnw (Unix) -> LF
+mvnw text eol=lf
+# Windows batch/cmd files -> CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
+# Binary
+*.jar binary
+*.png binary
+*.jpg binary
+*.ico binary
+*.class binary
+*.jar filter=lfs diff=lfs merge=lfs -text
+*.war filter=lfs diff=lfs merge=lfs -text
+*.zip filter=lfs diff=lfs merge=lfs -text
+*.tar.gz filter=lfs diff=lfs merge=lfs -text
+*.tgz filter=lfs diff=lfs merge=lfs -text
+*.class filter=lfs diff=lfs merge=lfs -text
