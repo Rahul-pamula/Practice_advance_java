@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"
+href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style type="text/css">
+.td-align {
+text-align: justify;
+}
+</style>
+<title>Product details</title>
+</head>
+<body>
+<a href="/newProduct" class="btn btn-primary">Add New Product</a>
+<div class="container-fluid" style="width: 70%">
+<table class="table table-bordered table-striped text-center">
+<thead>
+<tr>
+<th>Product ID</th>
+<th>Name</th>
+<th>Brand</th>
+<th>Price</th>
+<th>Actions</th>kill
+</tr>
+</thead>
+<tbody>
+<tr class="td-align" th:each="product : ${allproducts}">
+<td class="td-align" th:text="${product.id}">Product ID</td>
+<td class="td-align" th:text="${product.name}">Name</td>
+<td class="td-align" th:text="${product.brand}">Brand</td>
+<td class="td-align" th:text="${product.price}">Price</td>
+<td>
+<a th:href="@{/edit/{id}(id=${product.id})}" class="btn btn-primary">Edit</a>&nbsp;&nbsp;&nbsp;
+<a th:href="@{/delete/{id}(id=${product.id})}" class="btn btn-danger"
+onclick="return confirm('Are you sure?')">Delete</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</body>
+</html>
